@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 import './Banner.css';
 
-const Banner = () => {
+const Banner = (props) => {
   return (
     <div className='Banner'>
       <div className='banner-left'>
