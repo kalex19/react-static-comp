@@ -3,9 +3,15 @@ import Header from './Header';
 import Banner from './Banner';
 import Stories from './Stories';
 import Footer from './Footer';
-import './App.css';
+import Button from './Button';
+import './App.css'; 
 
-const stories = [
+class App extends Component {
+  constructor() {
+  super();
+
+  this.state = {
+    stories: [
   {
     img: './story1.jpg',
     title: 'Winning at Fonts',
@@ -38,19 +44,32 @@ const stories = [
     authName: 'Pamela',
     estTime: '11 min'
   }
-]
+],
+    count: 0
+  }
+} 
 
-const App = (props) => {
+  increaseCount = () => {
+    let newNum;
+    this.state.count === 9
+    ? newNum = {count: 9}
+    : newNum = {count: this.state.count + 1}
+    this.setState(newNum);
+  } 
+
+  render() {
   return (
     <div className='App'>
+    <button onClick={this.increaseCount} className="button">{this.state.count}</button>
       <Header header={Header} />      
       <Banner banner={Banner} />
       <Stories  storiesTitle="Today's Top Stories"
-                stories={stories} />
-      <Stories storiesTitle="Pop Culture" stories={stories} />
+                stories={this.state.stories} />
+      <Stories storiesTitle="Pop Culture" stories={this.state.stories} />
       <Footer footer={Footer} />
     </div>
   );
+  }
 }
 
 export default App;

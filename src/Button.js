@@ -6,6 +6,7 @@ const Button = (props) => {
     <div className='Button'>
       <div className={'button ' + props.buttonType}>
         {props.buttonText}
+        {props.count}
       </div>
     </div>
   )
